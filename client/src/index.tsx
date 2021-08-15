@@ -1,25 +1,23 @@
-import React, {createContext} from 'react';
+  
+import {createContext} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import UserStore from "./store/store";
-
-
+import Store from "./store/store";
 
 interface State {
-  store: UserStore,
+    store: Store,
 }
 
-export const store = new UserStore();
+export const store = new Store();
 
 export const Context = createContext<State>({
-  store,
+    store,
 })
 
-
 ReactDOM.render(
-  <Context.Provider value={{
-    store
-}}>
+    <Context.Provider value={{
+        store
+    }}>
         <App />
     </Context.Provider>,
   document.getElementById('root')
