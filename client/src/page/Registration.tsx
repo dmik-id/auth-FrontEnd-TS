@@ -1,6 +1,7 @@
 import React from "react";
+import { FC } from "react";
 
-const Registration = () =>{
+const Registration:FC = () =>{
   return(
     <div>
       Reg

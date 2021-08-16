@@ -1,6 +1,7 @@
 import React from "react";
+import { FC } from "react";
 
-const Landing = () =>{
+const Landing:FC = () =>{
   return(
     <div>
       Landing
