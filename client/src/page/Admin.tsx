@@ -1,20 +1,14 @@
-import React from "react";
+import React, {FC, useContext, useState} from 'react';
+import {Context} from "../index";
+import {observer} from "mobx-react-lite"; 
 
-const Admin = () =>{
-  return(
-    <div>
-      Admin
-      234234
-      234234234
-      234324234
-      234324324
-      324234
-      21341234
-      12341234
-      12341234
-      12341234
-    </div>
-  )
-}
+const Admin: FC = () => {
+
+    return (
+        <div>
+            Admin
+        </div>
+    );
+};
 
 export default Admin;

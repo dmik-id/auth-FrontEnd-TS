@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, FC} from 'react';
 import { ReactDOM } from 'react';
 import { FormControl } from '@material-ui/core';
 import Card from '@material-ui/core/Card'
@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button'
 import Input from '@material-ui/core/Input'
 
 
-const Auth = observer(() => {
+const Auth:FC = () => {
     const {store} = useContext(Context)
     const location = useLocation()
     const history = useHistory()
@@ -82,6 +82,6 @@ const Auth = observer(() => {
             </Card>
         </Container>
     );
-});
+};
 
-export default Auth;
+export default observer(Auth);
