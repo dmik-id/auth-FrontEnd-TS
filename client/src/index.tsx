@@ -1,5 +1,4 @@
-import React from 'react';
-import {createContext} from 'react';
+import React, {createContext} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Store from "./store/store";
@@ -22,3 +21,4 @@ ReactDOM.render(
     </Context.Provider>,
   document.getElementById('root')
 );
+
