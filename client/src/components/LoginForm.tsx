@@ -12,10 +12,7 @@ const LoginForm: FC = () => {
 
     return (
         <div>
-            <Container
-                        className="d-flex justify-content-center align-items-center"
-                        style={{height: window.innerHeight - 54}}
-            >
+            
                 <Card style={{width: 200}} className="p-5">
                     <Input
                         onChange={e => setEmail(e.target.value)}
@@ -36,7 +33,7 @@ const LoginForm: FC = () => {
                         Регистрация
                     </Button>
                 </Card>
-            </Container>
+           
         </div>
     );
 };

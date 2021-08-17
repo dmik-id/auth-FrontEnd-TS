@@ -5,7 +5,7 @@ import {observer} from "mobx-react-lite";
 import {IUser} from "./models/IUser";
 import UserService from "./services/UserService";
 import { Button } from '@material-ui/core';
-import AppRouter from './routes/AppRouter';
+
 
 const App: FC = () => {
     const {store} = useContext(Context);
@@ -33,7 +33,7 @@ const App: FC = () => {
     if (!store.isAuth) {
         return (
             <div>
-                <AppRouter />
+                <LoginForm />
                 <Button onClick={getUsers}>Получить пользователей</Button>
             </div>
         );
@@ -41,7 +41,7 @@ const App: FC = () => {
 
     return (
         <div>
-            {/* <h1>{store.isAuth ? `Пользователь авторизован ${store.user.email}` : 'АВТОРИЗУЙТЕСЬ'}</h1>
+            <h1>{store.isAuth ? `Пользователь авторизован ${store.user.email}` : 'АВТОРИЗУЙТЕСЬ'}</h1>
            
             <Button onClick={() => store.logout()}>Выйти</Button>
             <div>
@@ -49,7 +49,7 @@ const App: FC = () => {
             </div>
             {users.map(user =>
                 <div key={user.email}>{user.email}</div>
-            )} */}
+            )}
         </div>
     );
 };
