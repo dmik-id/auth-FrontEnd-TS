@@ -12,7 +12,7 @@ const LoginForm: FC = () => {
 
     return (
         <div>
-            
+            <Container>
                 <Card style={{width: 200}} className="p-5">
                     <Input
                         onChange={e => setEmail(e.target.value)}
@@ -33,6 +33,7 @@ const LoginForm: FC = () => {
                         Регистрация
                     </Button>
                 </Card>
+            </Container>
            
         </div>
     );

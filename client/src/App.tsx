@@ -5,6 +5,9 @@ import {observer} from "mobx-react-lite";
 import {IUser} from "./models/IUser";
 import UserService from "./services/UserService";
 import { Button } from '@material-ui/core';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './components/AppRouter';
+import AppBar from './components/AppBar'
 
 
 const App: FC = () => {
@@ -30,27 +33,36 @@ const App: FC = () => {
         return <div>Загрузка...</div>
     }
 
-    if (!store.isAuth) {
-        return (
-            <div>
-                <LoginForm />
-                <Button onClick={getUsers}>Получить пользователей</Button>
-            </div>
-        );
-    }
+    // if (!store.isAuth) {
+    //     return (
+    //         <div>
+    //             <LoginForm />
+    //             <Button onClick={getUsers}>Получить пользователей</Button>
+    //         </div>
+    //     );
+    // }
 
     return (
-        <div>
-            <h1>{store.isAuth ? `Пользователь авторизован ${store.user.email}` : 'АВТОРИЗУЙТЕСЬ'}</h1>
+        <BrowserRouter>
+
+            <AppBar />
+            <AppRouter /> 
+            
+        
+        </BrowserRouter>
+        
+
+        // <div>
+        //     <h1>{store.isAuth ? `Пользователь авторизован ${store.user.email}` : 'АВТОРИЗУЙТЕСЬ'}</h1>
            
-            <Button onClick={() => store.logout()}>Выйти</Button>
-            <div>
-                <Button onClick={getUsers}>Получить пользователей</Button>
-            </div>
-            {users.map(user =>
-                <div key={user.email}>{user.email}</div>
-            )}
-        </div>
+        //     <Button onClick={() => store.logout()}>Выйти</Button>
+        //     <div>
+        //         <Button onClick={getUsers}>Получить пользователей</Button>
+        //     </div>
+            // {users.map(user =>
+            //     <div key={user.email}>{user.email}</div>
+            // )}
+        // </div>
     );
 };
 
