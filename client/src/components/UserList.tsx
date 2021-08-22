@@ -1,8 +1,7 @@
 import React from "react";
-import { AppBar, Button, Container, Link } from "@material-ui/core";
+import { Button, Container} from "@material-ui/core";
 import { FC } from "react";
 import { observer } from "mobx-react-lite";
-import { LANDING_ROUTE } from "../utils/consts";
 import UserService from "../services/UserService";
 import { useContext, useState } from "react";
 import { Context } from '../index'

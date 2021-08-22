@@ -13,7 +13,11 @@ const LoginForm: FC = () => {
     return (
         <div>
             <Container>
+
+
                 <Card style={{width: 200}} className="p-5">
+
+                    
                     <Input
                         onChange={e => setEmail(e.target.value)}
                         value={email}
@@ -32,7 +36,12 @@ const LoginForm: FC = () => {
                     <Button onClick={() => store.registration(email, password)}>
                         Регистрация
                     </Button>
+
+
                 </Card>
+
+
+
             </Container>
            
         </div>

@@ -16,6 +16,6 @@ const Admin:FC = () =>{
     )
 }
 
-export default Admin
+export default observer(Admin)
 
 

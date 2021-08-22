@@ -2,14 +2,22 @@ import React from "react";
 import { AppBar, Button, Container, Link } from "@material-ui/core";
 import { FC } from "react";
 import { observer } from "mobx-react-lite";
-import { LANDING_ROUTE, USERLIST_ROUTE } from "../utils/consts";
-import { IconButton } from "@material-ui/core";
-import MenuIcon from '@material-ui/core'
-
+import { LANDING_ROUTE, LOGIN_ROUTE, USERLIST_ROUTE } from "../utils/consts";
+import { useContext } from "react";
+import { Context } from "../index";
+import { IUser } from "../models/IUser";
 export{}
 
 
-const appbar:FC = () =>{
+const Appbar:FC = () =>{
+
+    const { store } = useContext(Context);
+
+    const logOut = () => {
+        let user = {} as IUser;
+        store.setUser(user)
+        store.setAuth(false)
+    }
 
     return(
 
@@ -26,12 +34,18 @@ const appbar:FC = () =>{
 
                 </Link>
 
-
+                <Button
+                onClick={() => logOut()}
+                >
+                {store.isAuth ? 'Sign Out' 
+                : 
+                <Link href = {LOGIN_ROUTE} color="inherit">Authorization</Link>}
+                </Button>
             </AppBar>
         </Container>
     )
 }
-export default appbar
+export default observer(Appbar)
 
 
 
