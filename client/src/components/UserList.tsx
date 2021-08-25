@@ -3,8 +3,8 @@ import { Button, Container} from "@material-ui/core";
 import { FC } from "react";
 import { observer } from "mobx-react-lite";
 import UserService from "../services/UserService";
-import { useContext, useState } from "react";
-import { Context } from '../index'
+import { useState } from "react";
+// import { Context } from '../index'
 import {IUser } from '../models/IUser'
 
 
@@ -13,7 +13,7 @@ export{}
 
 
 const UserList:FC = () =>{
-    const {store} = useContext(Context);
+    // const {store} = useContext(Context);
     const [users, setUsers] = useState<IUser[]>([]);
 
 
@@ -22,7 +22,7 @@ const UserList:FC = () =>{
             const response = await UserService.fetchUsers();
             setUsers(response.data);
         } catch (e) {
-            console.log(e);
+             console.log(e);
         }
     }
 

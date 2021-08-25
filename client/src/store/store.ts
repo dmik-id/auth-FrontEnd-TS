@@ -4,13 +4,24 @@ import AuthService from "../services/AuthService";
 import axios from 'axios';
 import {AuthResponse} from "../models/response/AuthResponse";
 import {API_URL} from "../http";
+// import { useHistory } from "react-router-dom";
+// import { USERLIST_ROUTE } from "../utils/consts";
+export{}
+
 
 export default class Store {
     user = {} as IUser;
     isAuth = false;
     isLoading = false;
+    // isAuth:boolean
+    // user:IUser
+    // isLoading:boolean
+    
 
     constructor() {
+        // this.isLoading = false
+        // this.isAuth = false
+        // this.user = {} as IUser
         makeAutoObservable(this);
     }
 
@@ -29,9 +40,10 @@ export default class Store {
     async login(email: string, password: string) {
         try {
             const response = await AuthService.login(email, password);
-            console.log(response)
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
+            console.log('OMG')
+            // history.push(USERLIST_ROUTE)
             this.setUser(response.data.user);
         } catch (e) {
             console.log(e.response?.data?.message);
@@ -52,7 +64,7 @@ export default class Store {
 
     async logout() {
         try {
-            const response = await AuthService.logout();
+            // const response = await AuthService.logout();
             localStorage.removeItem('token');
             this.setAuth(false);
             this.setUser({} as IUser);
@@ -66,11 +78,12 @@ export default class Store {
         try {
             const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
             console.log(response);
+            console.log('POPOPOPOPOPOP')
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
         } catch (e) {
-            console.log(e.response?.data?.message);
+             console.log(e.response?.data?.message);
         } finally {
             this.setLoading(false);
         }
