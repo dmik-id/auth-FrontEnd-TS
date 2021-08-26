@@ -10,12 +10,6 @@ import Admin from "./components/Admin";
 
 export{}
 
-export const adminRoutes = [
-    {
-        path: ADMIN_ROUTE,
-        Comment:Admin
-    }
-]
 
 
 export const authRoutes = [
@@ -24,6 +18,10 @@ export const authRoutes = [
         path: USERLIST_ROUTE,
         Component: UserList
     },
+    {
+        path: ADMIN_ROUTE,
+        Component:Admin
+    }
 ]
 
 export const publicRoutes = [

@@ -6,21 +6,17 @@ import {observer} from "mobx-react-lite";
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
 import AppBar from './components/AppBar'
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 const App: FC = () => {
     const {store} = useContext(Context);
-    // const [users, setUsers] = useState<IUser[]>([]);
 
-    const [loading, setLoading] = useState(true)
-
-
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            //   store.checkAuth()
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (localStorage.getItem('token')) {
+    //            store.checkAuth()
+    //     }
+    // }, [])
 
 
     if (store.isLoading) {
@@ -30,10 +26,8 @@ const App: FC = () => {
 
     return (
         <BrowserRouter>
-
             <AppBar />
             <AppRouter /> 
-            
         </BrowserRouter>
         
     );
