@@ -12,11 +12,11 @@ import AppBar from './components/AppBar'
 const App: FC = () => {
     const {store} = useContext(Context);
 
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-               store.checkAuth()
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (localStorage.getItem('token')) {
+    //            store.checkAuth()
+    //     }
+    // }, [])
 
 
     if (store.isLoading) {
