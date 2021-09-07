@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core';
 import { Input } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container'
-const LoginForm: FC = () => {
+const LoginForm: FC = observer(() => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const {store} = useContext(Context);
@@ -46,6 +46,6 @@ const LoginForm: FC = () => {
            
         </div>
     );
-};
+})
 
-export default observer(LoginForm);
+export default LoginForm

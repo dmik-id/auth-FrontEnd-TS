@@ -10,7 +10,7 @@ import { Button } from "@material-ui/core";
 import { Context } from "..";
 import { useContext } from "react";
 export{}
-const Admin:FC = () =>{
+const Admin:FC = observer(() =>{
     const {store} = useContext(Context)
     const [users, setUsers] = useState<IUser[]>([]);
     async function getUsers() {
@@ -43,8 +43,8 @@ const Admin:FC = () =>{
             </Container>
         </div>
     )
-}
+})
 
-export default observer(Admin)
+export default Admin
 
 

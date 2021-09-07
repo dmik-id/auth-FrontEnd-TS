@@ -12,7 +12,7 @@ import {IUser } from '../models/IUser'
 export{}
 
 
-const UserList:FC = () =>{
+const UserList:FC = observer(() =>{
     // const {store} = useContext(Context);
     const [users, setUsers] = useState<IUser[]>([]);
 
@@ -40,5 +40,5 @@ const UserList:FC = () =>{
 
         </div>
     )
-}
-export default observer(UserList)
+})
+export default UserList

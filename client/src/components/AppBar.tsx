@@ -9,7 +9,7 @@ import { IUser } from "../models/IUser";
 export{}
 
 
-const Appbar:FC = () =>{
+const Appbar:FC = observer(() =>{
 
     const { store } = useContext(Context);
 
@@ -17,6 +17,7 @@ const Appbar:FC = () =>{
         let user = {} as IUser;
         store.setUser(user)
         store.setAuth(false)
+        localStorage.removeItem('token')
     }
 
     return(
@@ -41,7 +42,7 @@ const Appbar:FC = () =>{
 
 
                 <Button
-                onClick={() => store.logout()}
+                onClick={() => logOut()}
                 >
                 {store.isAuth ? 'Sign Out' 
                 : 
@@ -50,8 +51,8 @@ const Appbar:FC = () =>{
             </AppBar>
         </Container>
     )
-}
-export default observer(Appbar)
+})
+export default Appbar
 
 
 

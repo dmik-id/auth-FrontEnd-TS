@@ -11,12 +11,14 @@ export{}
 
 export default class Store {
     user = {} as IUser;
-    isAuth = false;
+    isAuth:boolean = false;
     isLoading = false;
 
     
 
     constructor() {
+        // this.isAuth = false
+        // this.user = {} as IUser
 
         makeAutoObservable(this);
     }
@@ -36,7 +38,7 @@ export default class Store {
     async login(email: string, password: string) {
         try {
             const response = await AuthService.login(email, password);
-            console.log(response)
+     
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
@@ -69,19 +71,19 @@ export default class Store {
         }
     }
 
-    async checkAuth() {
-        this.setLoading(true);
-        try {
-            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
-            console.log(response);
+    // async checkAuth() {
+    //     this.setLoading(true);
+    //     try {
+    //         const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
+    //         console.log(response);
             
-            localStorage.setItem('token', response.data.accessToken);
-            this.setAuth(true);
-            this.setUser(response.data.user);
-        } catch (e) {
-              console.log(e);
-        } finally {
-            this.setLoading(false);
-        }
-    }
+    //         localStorage.setItem('token', response.data.accessToken);
+    //         this.setAuth(true);
+    //         this.setUser(response.data.user);
+    //     } catch (e) {
+    //           console.log(e);
+    //     } finally {
+    //         this.setLoading(false);
+    //     }
+    // }
 }

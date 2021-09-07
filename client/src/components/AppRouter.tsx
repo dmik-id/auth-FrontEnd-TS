@@ -8,18 +8,20 @@ import {observer} from "mobx-react-lite";
 
 export{}
 
-const AppRouter = () => {
+const AppRouter = observer(() => {
     const {store} = useContext(Context)
-       
+    
 
 
     return (
         <Switch>
 
-            {/* {store.isAuth && } */}
+           
 
-            {store.isAuth && authRoutes.map(({path, Component}) =>
-                <Route key={path} path={path} component={Component} exact/>
+            {store.isAuth === true && authRoutes.map(({path, Component}) =>
+                {<Route key={path} path={path} component={Component} exact/>
+                
+            }
             )}
 
 
@@ -30,6 +32,7 @@ const AppRouter = () => {
             <Redirect to={LANDING_ROUTE}/>
         </Switch>
     );
-};
+}
+)
 
-export default observer(AppRouter);
+export default AppRouter;
