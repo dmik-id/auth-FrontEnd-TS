@@ -13,11 +13,12 @@ export{}
 
 
 export const authRoutes = [
-
     {
         path: USERLIST_ROUTE,
         Component: UserList
     },
+
+
     {
         path: ADMIN_ROUTE,
         Component:Admin
@@ -30,6 +31,7 @@ export const publicRoutes = [
         path: LANDING_ROUTE,
         Component: Landing
     },
+
     {
         path: LOGIN_ROUTE,
         Component: LoginForm

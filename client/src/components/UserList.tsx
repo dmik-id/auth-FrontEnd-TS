@@ -30,9 +30,8 @@ const UserList:FC = observer(() =>{
     return(
         <div>
             <Container>
+                <h1>UserList</h1>
                 <Button onClick={getUsers}>USERS</Button>
-
-
                     {users.map(user =>
                         <div key={user.email}>{user.email}</div>
                     )}

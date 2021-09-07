@@ -8,7 +8,7 @@ import {observer} from "mobx-react-lite";
 
 export{}
 
-const AppRouter = observer(() => {
+const AppRouter = () => {
     const {store} = useContext(Context)
     
 
@@ -16,13 +16,10 @@ const AppRouter = observer(() => {
     return (
         <Switch>
 
-           
-
-            {store.isAuth === true && authRoutes.map(({path, Component}) =>
-                {<Route key={path} path={path} component={Component} exact/>
-                
-            }
-            )}
+            
+            {store.isAuth && authRoutes.map(({path, Component}) =>
+                    <Route key={path} path={path} component={Component} exact/>
+                )}
 
 
             {publicRoutes.map(({path, Component}) =>
@@ -33,6 +30,6 @@ const AppRouter = observer(() => {
         </Switch>
     );
 }
-)
+
 
 export default AppRouter;

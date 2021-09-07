@@ -1,38 +1,49 @@
 import {IUser} from "../models/IUser";
 import {makeAutoObservable} from "mobx";
 import AuthService from "../services/AuthService";
-import axios from 'axios';
-import {AuthResponse} from "../models/response/AuthResponse";
-import {API_URL} from "../http";
+import { useContext } from "react";
+
 // import { useHistory } from "react-router-dom";
 // import { USERLIST_ROUTE } from "../utils/consts";
 export{}
 
 
 export default class Store {
-    user = {} as IUser;
-    isAuth:boolean = false;
-    isLoading = false;
 
-    
+    _isAuth:boolean
+    _user:IUser
+
+    _isLoading:boolean
 
     constructor() {
-        // this.isAuth = false
-        // this.user = {} as IUser
-
-        makeAutoObservable(this);
+        if (localStorage.length != 0){
+            this._isAuth = true
+        }
+        else{
+            this._isAuth = false
+        }
+        
+        this._user = {} as IUser
+        this._isLoading = false
+        makeAutoObservable(this)
     }
 
-    setAuth(bool: boolean) {
-        this.isAuth = bool;
+    setAuth(bool:boolean) {
+        this._isAuth = bool
+    }
+    setUser(user:IUser) {
+        this._user = user
     }
 
-    setUser(user: IUser) {
-        this.user = user;
+    get isAuth() {
+        return this._isAuth
+    }
+    get user() {
+        return this._user
     }
 
     setLoading(bool: boolean) {
-        this.isLoading = bool;
+        this._isLoading = bool;
     }
 
     async login(email: string, password: string) {

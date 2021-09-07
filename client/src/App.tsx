@@ -14,15 +14,19 @@ const App: FC = () => {
     const {store} = useContext(Context);
 
     useEffect(() => {
+        console.log(localStorage)
+        console.log(store.isAuth)
         if (localStorage.getItem('token')){
+            
             store.setAuth(true)
+            console.log(store.isAuth)
         }
         
         
     }, [])
 
 
-    if (store.isLoading) {
+    if (store._isLoading) {
         return <div>Загрузка...</div>
     }
 

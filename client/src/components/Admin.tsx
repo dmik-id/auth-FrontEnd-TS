@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { FC } from "react";
-import { Container } from "@material-ui/core";
+import { Card, Container, Input } from "@material-ui/core";
 import { FormControl } from "@material-ui/core";
 import { useState } from "react";
 import { IUser } from "../models/IUser";
@@ -21,8 +21,10 @@ const Admin:FC = observer(() =>{
              console.log(e);
         }
     }
-    // getUsers()
-    console.log(store.user.role)
+    async function addRole(){
+
+    }
+
 
     
 
@@ -33,12 +35,15 @@ const Admin:FC = observer(() =>{
                     <h1>ADMIN</h1>
                     <Button onClick={getUsers}>USERS</Button>
 
-
                         {users.map(user =>
                             <div key={user.email}>{user.role}</div>
                         )}
-             
-            
+
+                        <Card>
+                        <Input
+                        placeholder='Введите роль'
+                        />
+                        </Card>
                 </FormControl>
             </Container>
         </div>
