@@ -6,7 +6,6 @@ import {observer} from "mobx-react-lite";
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
 import AppBar from './components/AppBar'
-import AuthService from './services/AuthService';
 // import { useState } from 'react';
 
 
@@ -17,12 +16,9 @@ const App: FC = () => {
         console.log(localStorage)
         console.log(store.isAuth)
         if (localStorage.getItem('token')){
-            
             store.setAuth(true)
             console.log(store.isAuth)
         }
-        
-        
     }, [])
 
 

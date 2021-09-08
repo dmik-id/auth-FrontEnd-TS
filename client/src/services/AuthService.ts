@@ -1,6 +1,7 @@
 import $api from "../http";
 import {AxiosResponse} from 'axios';
 import {AuthResponse} from "../models/response/AuthResponse";
+import { RoleResponse } from "../models/response/RoleResponse";
 
 export default class AuthService {
     static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
@@ -18,6 +19,15 @@ export default class AuthService {
     static async logout(): Promise<void> {
         return $api.post('/logout')
     }
+
+
+    static async addRole(value:string, description:string):Promise<AxiosResponse<RoleResponse>>{
+        return $api.post('/roles', {value, description})
+    }
+
+    // static async getRole(value:string){
+    //     return $api.get(`/role/:${value}`)
+    // }
 
 }
 

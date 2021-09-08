@@ -1,7 +1,9 @@
 import {IUser} from "../models/IUser";
 import {makeAutoObservable} from "mobx";
 import AuthService from "../services/AuthService";
-import { useContext } from "react";
+
+
+import UserService from "../services/UserService";
 
 // import { useHistory } from "react-router-dom";
 // import { USERLIST_ROUTE } from "../utils/consts";
@@ -16,7 +18,7 @@ export default class Store {
     _isLoading:boolean
 
     constructor() {
-        if (localStorage.length != 0){
+        if (localStorage.length !== 0){
             this._isAuth = true
         }
         else{
@@ -82,19 +84,22 @@ export default class Store {
         }
     }
 
-    // async checkAuth() {
-    //     this.setLoading(true);
-    //     try {
-    //         const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
-    //         console.log(response);
-            
-    //         localStorage.setItem('token', response.data.accessToken);
-    //         this.setAuth(true);
-    //         this.setUser(response.data.user);
-    //     } catch (e) {
-    //           console.log(e);
-    //     } finally {
-    //         this.setLoading(false);
-    //     }
+
+    async addRoleToUser(value:string, userId:number){
+        const response = await UserService.addRoleToUser(value, userId)
+        console.log(response)
+    }
+
+
+    async addRole(value:string, description:string){
+        const response = await AuthService.addRole(value, description)
+        console.log(response)
+    }
+
+    // async getRole(value:string){
+    //     const response = await AuthService.getRole(value)
+    //     console.log(response)
     // }
+
+
 }

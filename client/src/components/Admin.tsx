@@ -2,49 +2,59 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import { FC } from "react";
 import { Card, Container, Input } from "@material-ui/core";
-import { FormControl } from "@material-ui/core";
 import { useState } from "react";
-import { IUser } from "../models/IUser";
-import UserService from "../services/UserService";
+
 import { Button } from "@material-ui/core";
 import { Context } from "..";
 import { useContext } from "react";
+
 export{}
 const Admin:FC = observer(() =>{
     const {store} = useContext(Context)
-    const [users, setUsers] = useState<IUser[]>([]);
-    async function getUsers() {
-        try {
-            const response = await UserService.fetchUsers();
-            setUsers(response.data);
-        } catch (e) {
-             console.log(e);
-        }
-    }
-    async function addRole(){
-
-    }
 
 
-    
+    const [value, setValue] = useState<string>('')
+    const [description, setDescription] = useState<string>('')
+    // const [roleValue, setRoleValue] = useState<string>('')
+
 
     return(
         <div>
             <Container>
-                <FormControl>
+                
                     <h1>ADMIN</h1>
-                    <Button onClick={getUsers}>USERS</Button>
 
-                        {users.map(user =>
-                            <div key={user.email}>{user.role}</div>
-                        )}
 
-                        <Card>
+                        <Card style={{width: 200}} className="p-5">
                         <Input
-                        placeholder='Введите роль'
+                            onChange={e => setValue(e.target.value)}
+                            value={value}
+                            placeholder='введите роль'
                         />
+
+                        <Input
+                            onChange={e => setDescription(e.target.value)}
+                            value={description}
+                            placeholder='введите описание'
+                        />
+
+                        <Button onClick={() => store.addRole(value, description)}>
+                             ADDROLE
+                         </Button>
                         </Card>
-                </FormControl>
+
+
+
+                        {/* <Input
+                            onChange={e => setRoleValue(e.target.value)}
+                            value={roleValue}
+                            placeholder='введите описание'
+                        />
+                        <Button onClick={()=> store.getRole(value)}>ROLES</Button>
+                            {roleValue.map(role =>
+                                <div key={role.value}>{role.description}</div>
+                            )} */}
+              
             </Container>
         </div>
     )

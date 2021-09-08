@@ -4,7 +4,6 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import {publicRoutes, authRoutes} from "../routes";
 import {LANDING_ROUTE} from "../utils/consts";
 import {Context} from "../index";
-import {observer} from "mobx-react-lite";
 
 export{}
 
