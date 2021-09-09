@@ -86,7 +86,7 @@ export default class Store {
 
 
     async addRoleToUser(value:string, userId:number){
-        const response = await UserService.addRoleToUser(value, userId)
+        const response = await AuthService.addRoleToUser(value, userId)
         console.log(response)
     }
 

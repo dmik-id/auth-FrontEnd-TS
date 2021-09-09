@@ -16,6 +16,8 @@ const Admin:FC = observer(() =>{
     const [value, setValue] = useState<string>('')
     const [description, setDescription] = useState<string>('')
     // const [roleValue, setRoleValue] = useState<string>('')
+    const [Ivalue, setIvalue] = useState<string>('')
+    const [IuserId, setIuserId] = useState<number>(0)
 
 
     return(
@@ -43,17 +45,21 @@ const Admin:FC = observer(() =>{
                          </Button>
                         </Card>
 
-
-
-                        {/* <Input
-                            onChange={e => setRoleValue(e.target.value)}
-                            value={roleValue}
-                            placeholder='введите описание'
+                        <h1>ADD ROLE TO USER</h1>
+                        <Card style={{width: 200}} className="p-5">
+                        <Input
+                            onChange={e => setIvalue(e.target.value)}
+                            value={Ivalue}
+                            placeholder='введите роль'
                         />
-                        <Button onClick={()=> store.getRole(value)}>ROLES</Button>
-                            {roleValue.map(role =>
-                                <div key={role.value}>{role.description}</div>
-                            )} */}
+                        <Input
+                            onChange={e => setIuserId(Number(e.target.value))}
+                            value={IuserId}
+                            placeholder='введите ID'
+                        />
+                        </Card>
+
+                        <Button onClick={()=> store.addRoleToUser(Ivalue, IuserId)}>ADD ROLE TO USER</Button>
               
             </Container>
         </div>

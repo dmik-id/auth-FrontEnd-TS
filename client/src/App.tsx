@@ -13,11 +13,10 @@ const App: FC = () => {
     const {store} = useContext(Context);
 
     useEffect(() => {
-        console.log(localStorage)
-        console.log(store.isAuth)
+
         if (localStorage.getItem('token')){
             store.setAuth(true)
-            console.log(store.isAuth)
+ 
         }
     }, [])
 

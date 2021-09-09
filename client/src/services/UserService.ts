@@ -10,9 +10,5 @@ export default class UserService {
     }
 
 
-    static addRoleToUser(value:string, userId:number){
-        return $api.post('/role', {value, userId})
-    }
-
 }
 

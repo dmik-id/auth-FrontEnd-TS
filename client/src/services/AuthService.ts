@@ -25,9 +25,11 @@ export default class AuthService {
         return $api.post('/roles', {value, description})
     }
 
-    // static async getRole(value:string){
-    //     return $api.get(`/role/:${value}`)
-    // }
+
+    static async addRoleToUser(value:string, userId:number):Promise<AxiosResponse<RoleResponse>>{
+        return $api.post('/users/role', {value, userId})
+    }
+    
 
 }
 
