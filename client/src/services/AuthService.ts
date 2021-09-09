@@ -30,6 +30,10 @@ export default class AuthService {
         return $api.post('/users/role', {value, userId})
     }
     
+    static async resertPassword(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
+        return $api.post<AuthResponse>('/users/resert', {email, password})
+    }
+
 
 }
 

@@ -95,11 +95,16 @@ export default class Store {
         const response = await AuthService.addRole(value, description)
         console.log(response)
     }
+    async resertPassword(email:string, password:string){
 
-    // async getRole(value:string){
-    //     const response = await AuthService.getRole(value)
-    //     console.log(response)
-    // }
+        try{
+            const response = await AuthService.resertPassword(email,password)
+            console.log(response)
+        }catch(e){
+            console.log(e)
+        }
+
+    }
 
 
 }
