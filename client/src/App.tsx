@@ -14,12 +14,12 @@ const App: FC = () => {
 
     useEffect(() => {
 
+
         if (localStorage.getItem('token')){
             store.setAuth(true)
- 
+
         }
     }, [])
-
 
     if (store._isLoading) {
         return <div>Загрузка...</div>

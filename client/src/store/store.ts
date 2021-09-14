@@ -3,10 +3,6 @@ import {makeAutoObservable} from "mobx";
 import AuthService from "../services/AuthService";
 
 
-import UserService from "../services/UserService";
-
-// import { useHistory } from "react-router-dom";
-// import { USERLIST_ROUTE } from "../utils/consts";
 export{}
 
 
@@ -18,7 +14,7 @@ export default class Store {
     _isLoading:boolean
 
     constructor() {
-        if (localStorage.length !== 0){
+        if (localStorage.getItem('token')){
             this._isAuth = true
         }
         else{

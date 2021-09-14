@@ -1,14 +1,11 @@
 
-// import Admin from './page/Admin'
-import {ADMIN_ROUTE, LANDING_ROUTE, LOGIN_ROUTE, RESERTPASSWORD_ROUTE, USERLIST_ROUTE} from "./utils/consts";
-// import Auth from './page/Auth';
-// import UserList from './page/UserList'
+import {ADMIN_ROUTE, LANDING_ROUTE, LOGIN_ROUTE, NOTES_ROUTE, RESERTPASSWORD_ROUTE, USERLIST_ROUTE} from "./utils/consts";
 import Landing from './components/Landing';
 import LoginForm from "./components/LoginForm";
 import UserList from "./components/UserList";
 import Admin from "./components/Admin";
-import { Component } from "react";
 import ResertPassword from "./components/ResertPassword";
+import Notes from "./components/Notes";
 
 export{}
 
@@ -24,6 +21,11 @@ export const authRoutes = [
     {
         path: ADMIN_ROUTE,
         Component:Admin
+    },
+
+    {
+        path: NOTES_ROUTE,
+        Component: Notes
     }
 ]
 

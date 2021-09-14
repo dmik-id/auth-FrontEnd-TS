@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { FC } from "react";
-import { Card, Container, Input, Link } from "@material-ui/core";
+import { Card, Container, Input } from "@material-ui/core";
 import { useState } from "react";
 
 import { Button } from "@material-ui/core";
