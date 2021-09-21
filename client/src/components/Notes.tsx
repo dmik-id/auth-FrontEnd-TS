@@ -35,18 +35,7 @@ const Notes: FC = observer(() =>{
                         {...notes(value || '')}
                         
                     />
-
-                     <Button onClick ={() => {
-                        let valueSt:string = ''
-                        if (value === null){
-                            valueSt = ''
-                        }else{
-                            valueSt = value
-                        }
-                        localStorage.setItem('notes', valueSt)
-                        }}>
-                        go
-                    </Button>  
+ 
                 </FormControl>
             </Container>
         </div>

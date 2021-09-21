@@ -14,7 +14,7 @@ export default class Store {
     _isLoading:boolean
 
     constructor() {
-        if (localStorage.getItem('token')){
+        if (localStorage.getItem('token') !== null){
             this._isAuth = true
         }
         else{
