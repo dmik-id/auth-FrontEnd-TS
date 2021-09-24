@@ -7,7 +7,7 @@ export{}
 
 const Notes: FC = observer(() =>{
 
-    function notes(value:string) {
+    function saveNote(value:string) {
         let valueSt:string = ''
         if (value === null){
             valueSt = ''
@@ -17,7 +17,19 @@ const Notes: FC = observer(() =>{
         localStorage.setItem('notes', valueSt)
     }
 
+
+    function saveTitle(value:string) {
+        let valueSt:string = ''
+        if (value === null){
+            valueSt = ''
+        }else{
+            valueSt = value
+        }
+        localStorage.setItem('title', valueSt)
+    }
+
     const [value, setValue] = useState(localStorage.getItem('notes'))
+    const [title, setTitle] = useState(localStorage.getItem('title'))
 
     return(
         <div>
@@ -27,14 +39,23 @@ const Notes: FC = observer(() =>{
 
 
                     <TextField 
+                        onChange={e => setTitle(e.target.value)}
+                        value={title}
+                        label = 'title'
+                        {...saveTitle(title || '')}
+                    />
+
+
+                    <TextField 
                         onChange={e => setValue(e.target.value)}
                         value={value}
-                        label = 'your notes'
+                        label = 'full text'
                         multiline
                         maxRows ={10}
-                        {...notes(value || '')}
+                        {...saveNote(value || '')}
                         
                     />
+                    
  
                 </FormControl>
             </Container>
