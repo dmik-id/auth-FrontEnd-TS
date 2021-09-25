@@ -30,6 +30,7 @@ const Notes: FC = observer(() =>{
 
     const [value, setValue] = useState(localStorage.getItem('notes'))
     const [title, setTitle] = useState(localStorage.getItem('title'))
+    
 
     return(
         <div>
@@ -55,9 +56,18 @@ const Notes: FC = observer(() =>{
                         {...saveNote(value || '')}
                         
                     />
+                    <Button>
+                        SAVE
+                    </Button>
+
                     
  
                 </FormControl>
+
+                
+                <Button>
+                    GET NOTES
+                </Button>
             </Container>
         </div>
     )
