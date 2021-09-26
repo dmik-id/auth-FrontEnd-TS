@@ -1,7 +1,10 @@
 import { Button, FormControl,  TextField  } from "@material-ui/core";
-import React, {FC, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import { Container } from "@material-ui/core";
 import { observer } from "mobx-react-lite";
+import { useQuery } from "@apollo/client";
+import { GET_ALL_NOTES } from "../quary/note";
+import { INote } from "../models/INote";
 
 export{}
 
@@ -30,8 +33,24 @@ const Notes: FC = observer(() =>{
 
     const [value, setValue] = useState(localStorage.getItem('notes'))
     const [title, setTitle] = useState(localStorage.getItem('title'))
-    
+    const [notes, setNotes] = useState([])
+    const {data , loading, error, refetch} = useQuery(GET_ALL_NOTES)
 
+
+    useEffect(() => {
+        if(!loading){
+            setNotes(data.getAllNote)
+        }
+    }, [data])
+
+    // function test(note:INote): string {
+    //     return note.title
+        
+    // }
+    // if (notes[0] !== undefined){
+    //     console.log(test(notes[0]))
+        
+    // }
     return(
         <div>
             <Container>
@@ -41,7 +60,7 @@ const Notes: FC = observer(() =>{
 
                     <TextField 
                         onChange={e => setTitle(e.target.value)}
-                        value={title}
+                        value={title || ''}
                         label = 'title'
                         {...saveTitle(title || '')}
                     />
@@ -49,7 +68,7 @@ const Notes: FC = observer(() =>{
 
                     <TextField 
                         onChange={e => setValue(e.target.value)}
-                        value={value}
+                        value={value || ''}
                         label = 'full text'
                         multiline
                         maxRows ={10}
@@ -60,14 +79,21 @@ const Notes: FC = observer(() =>{
                         SAVE
                     </Button>
 
-                    
+                    <Button>
+                        GET NOTES
+                    </Button>
+                        
+                        {notes.map((note:INote) => <div>
+                            title: {note.title} ; author: {note.author} ; date: {note.date}
+                        </div>)}
+                             
  
                 </FormControl>
 
                 
-                <Button>
-                    GET NOTES
-                </Button>
+
+
+
             </Container>
         </div>
     )

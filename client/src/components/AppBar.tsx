@@ -19,6 +19,7 @@ const Appbar:FC = observer(() =>{
         store.setAuth(false)
         localStorage.removeItem('token')
         localStorage.removeItem('notes')
+        localStorage.removeItem('title')
     }
 
     return(
