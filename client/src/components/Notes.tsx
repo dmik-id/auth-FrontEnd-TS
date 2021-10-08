@@ -2,9 +2,10 @@ import { Button, FormControl,  TextField  } from "@material-ui/core";
 import React, {FC, useEffect, useState} from "react";
 import { Container } from "@material-ui/core";
 import { observer } from "mobx-react-lite";
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { GET_ALL_NOTES } from "../quary/note";
 import { INote } from "../models/INote";
+import { CREATE_USER } from "../mutations/note";
 
 export{}
 
@@ -31,10 +32,24 @@ const Notes: FC = observer(() =>{
         localStorage.setItem('title', valueSt)
     }
 
+    const addNote = (title:string, value:string) => {
+        newNote({
+            variables:{
+                createNoteData: {
+                    title, value
+                }
+            }
+        }).then(({data}) => {
+            console.log(data)
+
+        })
+        
+    }
     const [value, setValue] = useState(localStorage.getItem('notes'))
     const [title, setTitle] = useState(localStorage.getItem('title'))
     const [notes, setNotes] = useState([])
     const {data , loading, error, refetch} = useQuery(GET_ALL_NOTES)
+    const [newNote] = useMutation(CREATE_USER)
 
 
     useEffect(() => {
@@ -43,14 +58,6 @@ const Notes: FC = observer(() =>{
         }
     }, [data])
 
-    // function test(note:INote): string {
-    //     return note.title
-        
-    // }
-    // if (notes[0] !== undefined){
-    //     console.log(test(notes[0]))
-        
-    // }
     return(
         <div>
             <Container>
@@ -75,7 +82,7 @@ const Notes: FC = observer(() =>{
                         {...saveNote(value || '')}
                         
                     />
-                    <Button>
+                    <Button onClick={() => addNote(title || '', value || '')}>
                         SAVE
                     </Button>
 

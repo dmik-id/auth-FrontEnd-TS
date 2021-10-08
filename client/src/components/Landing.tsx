@@ -13,10 +13,6 @@ const Landing: FC = observer(() =>{
                     
 
                 </FormControl>
-                <Card style={{width: 200}} className="p-5">
-                    <Input />
-                </Card>
-
 
             </Container>
         </div>
