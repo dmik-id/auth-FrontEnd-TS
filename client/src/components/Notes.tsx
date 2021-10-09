@@ -32,11 +32,11 @@ const Notes: FC = observer(() =>{
         localStorage.setItem('title', valueSt)
     }
 
-    const addNote = (title:string, value:string) => {
+    const addNote = (title:string, fullText:string) => {
         newNote({
             variables:{
                 createNoteData: {
-                    title, value
+                    title, fullText
                 }
             }
         }).then(({data}) => {
@@ -45,7 +45,7 @@ const Notes: FC = observer(() =>{
         })
         
     }
-    const [value, setValue] = useState(localStorage.getItem('notes'))
+    const [fullText, setFullText] = useState(localStorage.getItem('notes'))
     const [title, setTitle] = useState(localStorage.getItem('title'))
     const [notes, setNotes] = useState([])
     const {data , loading, error, refetch} = useQuery(GET_ALL_NOTES)
@@ -74,15 +74,15 @@ const Notes: FC = observer(() =>{
 
 
                     <TextField 
-                        onChange={e => setValue(e.target.value)}
-                        value={value || ''}
+                        onChange={e => setFullText(e.target.value)}
+                        value={fullText || ''}
                         label = 'full text'
                         multiline
                         maxRows ={10}
-                        {...saveNote(value || '')}
+                        {...saveNote(fullText || '')}
                         
                     />
-                    <Button onClick={() => addNote(title || '', value || '')}>
+                    <Button onClick={() => addNote(title || '', fullText || '')}>
                         SAVE
                     </Button>
 
