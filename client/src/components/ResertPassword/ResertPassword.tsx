@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 import { Card } from "@material-ui/core";
 import { useState } from "react";
 import { Button } from "@material-ui/core";
-import { Context } from "..";
+import { Context } from "../..";
 
 
 

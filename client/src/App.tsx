@@ -4,8 +4,8 @@ import {observer} from "mobx-react-lite";
 // import {IUser} from "./models/IUser";
 // import UserService from "./services/UserService";
 import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './components/AppRouter';
-import AppBar from './components/AppBar'
+import AppRouter from './components/AppRouter/AppRouter';
+import AppBar from './components/AppBar/AppBar'
 // import { useState } from 'react';
 
 

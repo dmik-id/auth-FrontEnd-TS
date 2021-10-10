@@ -2,10 +2,10 @@ import React from "react";
 import { Button, Container} from "@material-ui/core";
 import { FC } from "react";
 import { observer } from "mobx-react-lite";
-import UserService from "../services/UserService";
+import UserService from "../../services/UserService";
 import { useState } from "react";
 // import { Context } from '../index'
-import {IUser } from '../models/IUser'
+import {IUser } from '../../models/IUser'
 
 
 

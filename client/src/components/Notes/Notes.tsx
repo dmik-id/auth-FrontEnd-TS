@@ -3,13 +3,20 @@ import React, {FC, useEffect, useState} from "react";
 import { Container } from "@material-ui/core";
 import { observer } from "mobx-react-lite";
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_ALL_NOTES } from "../quary/note";
-import { INote } from "../models/INote";
-import { CREATE_USER } from "../mutations/note";
+import { GET_ALL_NOTES } from "../../quary/note";
+import { INote } from "../../models/INote";
+import { CREATE_USER } from "../../mutations/note";
 
 export{}
 
 const Notes: FC = observer(() =>{
+
+
+    const [fullText, setFullText] = useState(localStorage.getItem('notes'))
+    const [title, setTitle] = useState(localStorage.getItem('title'))
+    const [notes, setNotes] = useState([])
+    const {data , loading, error, refetch} = useQuery(GET_ALL_NOTES)
+    const [newNote] = useMutation(CREATE_USER)
 
     function saveNote(value:string) {
         let valueSt:string = ''
@@ -35,9 +42,10 @@ const Notes: FC = observer(() =>{
     const addNote = (title:string, fullText:string) => {
         newNote({
             variables:{
-                createNoteData: {
+                input:{
                     title, fullText
                 }
+            
             }
         }).then(({data}) => {
             console.log(data)
@@ -45,11 +53,6 @@ const Notes: FC = observer(() =>{
         })
         
     }
-    const [fullText, setFullText] = useState(localStorage.getItem('notes'))
-    const [title, setTitle] = useState(localStorage.getItem('title'))
-    const [notes, setNotes] = useState([])
-    const {data , loading, error, refetch} = useQuery(GET_ALL_NOTES)
-    const [newNote] = useMutation(CREATE_USER)
 
 
     useEffect(() => {
@@ -90,16 +93,12 @@ const Notes: FC = observer(() =>{
                         GET NOTES
                     </Button>
                         
-                        {notes.map((note:INote) => <div>
+                        {notes.map((note:INote) => <div key={note.id}>
                             title: {note.title} ; author: {note.author} ; date: {note.date}
                         </div>)}
                              
  
                 </FormControl>
-
-                
-
-
 
             </Container>
         </div>

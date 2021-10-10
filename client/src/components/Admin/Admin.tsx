@@ -3,9 +3,8 @@ import React from "react";
 import { FC } from "react";
 import { Card, Container, Input } from "@material-ui/core";
 import { useState } from "react";
-
 import { Button } from "@material-ui/core";
-import { Context } from "..";
+import { Context } from "../..";
 import { useContext } from "react";
 
 export{}
@@ -60,7 +59,6 @@ const Admin:FC = observer(() =>{
                         </Card>
 
                         <Button onClick={()=> store.addRoleToUser(Ivalue, IuserId)}>ADD ROLE TO USER</Button>
-
 
             </Container>
         </div>

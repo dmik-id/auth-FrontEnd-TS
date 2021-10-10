@@ -1,11 +1,11 @@
 import React, {FC, useContext, useState} from 'react';
-import {Context} from "../index";
+import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
 import { Button, Link } from '@material-ui/core';
 import { Input } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container'
-import { RESERTPASSWORD_ROUTE } from '../utils/consts';
+import { RESERTPASSWORD_ROUTE } from '../../utils/consts';
 const LoginForm: FC = observer(() => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -14,11 +14,7 @@ const LoginForm: FC = observer(() => {
     return (
         <div>
             <Container>
-
-
                 <Card style={{width: 200}} className="p-5">
-
-                    
                     <Input
                         onChange={e => setEmail(e.target.value)}
                         value={email}
@@ -44,11 +40,7 @@ const LoginForm: FC = observer(() => {
                 <Link href={RESERTPASSWORD_ROUTE} color="inherit">
                     resertpassword
                 </Link>
-
-
-
             </Container>
-           
         </div>
     );
 })

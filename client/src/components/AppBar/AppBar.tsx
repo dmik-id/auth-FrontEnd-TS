@@ -2,10 +2,10 @@ import React from "react";
 import { AppBar, Button, Container, Link } from "@material-ui/core";
 import { FC } from "react";
 import { observer } from "mobx-react-lite";
-import { ADMIN_ROUTE, LANDING_ROUTE, LOGIN_ROUTE, NOTES_ROUTE, USERLIST_ROUTE } from "../utils/consts";
+import { ADMIN_ROUTE, LANDING_ROUTE, LOGIN_ROUTE, NOTES_ROUTE, USERLIST_ROUTE } from "../../utils/consts";
 import { useContext } from "react";
-import { Context } from "../index";
-import { IUser } from "../models/IUser";
+import { Context } from "../../index";
+import { IUser } from "../../models/IUser";
 export{}
 
 

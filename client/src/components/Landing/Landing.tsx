@@ -7,14 +7,11 @@ export{}
 const Landing: FC = observer(() =>{
     return(
         <div>
-            <Container>
-                <FormControl>
+
                     <h1>Landing</h1>
                     
 
-                </FormControl>
-
-            </Container>
+ 
         </div>
     )
 })

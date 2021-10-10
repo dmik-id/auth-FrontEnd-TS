@@ -2,7 +2,7 @@ import React, {createContext} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Store from "./store/store";
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
+import {  ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
 interface State {
     store: Store,
@@ -21,7 +21,6 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-
     <ApolloProvider client={client}>
         <Context.Provider value={{
             store
@@ -30,5 +29,5 @@ ReactDOM.render(
         </Context.Provider>,
     </ApolloProvider>,
   document.getElementById('root')
-);
+); 
 
