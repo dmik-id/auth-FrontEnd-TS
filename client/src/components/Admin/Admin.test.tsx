@@ -7,7 +7,6 @@ describe('Admin component', () => {
         render(<Admin />)
 
 
-        screen.debug()
         expect(screen.getByText('ADMIN')).toBeInTheDocument
         expect(screen.getAllByText(/ADD ROLE TO USER/)).toBeInTheDocument
         expect(screen.getByText('ADDROLE')).toBeInTheDocument

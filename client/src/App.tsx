@@ -9,7 +9,7 @@ import AppBar from './components/AppBar/AppBar'
 // import { useState } from 'react';
 
 
-const App: FC = () => {
+const App: FC = observer(() => {
     const {store} = useContext(Context);
 
     useEffect(() => {
@@ -31,6 +31,6 @@ const App: FC = () => {
         </BrowserRouter>
         
     );
-};
+});
 
-export default observer(App);
+export default App;
