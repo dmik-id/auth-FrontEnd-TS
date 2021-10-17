@@ -13,7 +13,9 @@ const LoginForm: FC = observer(() => {
 
     return (
         <div>
+
             <Container>
+            
                 <Card style={{width: 200}} className="p-5">
                     <Input
                         onChange={e => setEmail(e.target.value)}

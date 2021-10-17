@@ -29,12 +29,9 @@ const Appbar:FC = observer(() =>{
             <AppBar  position="static">
                 <Link href={LANDING_ROUTE} color="inherit">
                     Landing
-
                 </Link>
-
                 <Link href={USERLIST_ROUTE} color="inherit">
                     Userlist
-
                 </Link>
                 
                 <Link href={ADMIN_ROUTE} color="inherit">

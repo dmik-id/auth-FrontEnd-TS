@@ -6,13 +6,11 @@ export{}
 
 const Landing: FC = observer(() =>{
     return(
-        <div>
-
-                    <h1>Landing</h1>
-                    
-
- 
-        </div>
+        <Container>
+            <div>
+                <h1>Landing</h1>
+            </div>
+        </Container>
     )
 })
 export default Landing

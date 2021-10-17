@@ -28,6 +28,6 @@ ReactDOM.render(
             <App />
         </Context.Provider>,
     </ApolloProvider>,
-  document.getElementById('root')
+  document.getElementById('root') || document.createElement('div')
 ); 
 

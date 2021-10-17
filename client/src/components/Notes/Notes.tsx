@@ -99,7 +99,6 @@ const Notes: FC = observer(() =>{
                              
  
                 </FormControl>
-
             </Container>
         </div>
     )

@@ -44,7 +44,7 @@ const Admin:FC = observer(() =>{
                          </Button>
                         </Card>
 
-                        <h1>ADD ROLE TO USER</h1>
+                        <h1> ADD ROLE TO USER </h1>
                         <Card style={{width: 200}} className="p-5">
                         <Input
                             onChange={e => setIvalue(e.target.value)}

@@ -4,7 +4,7 @@ import ResertPassword from './ResertPassword'
 
 describe('Notes component', () => {
     test('Notes renders', () => {
-        // render(<ResertPassword />)
+        render(<ResertPassword />)
 
         expect(screen.getAllByText('ResertPassword'))
 
