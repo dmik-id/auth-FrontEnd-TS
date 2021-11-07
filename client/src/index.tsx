@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Store from "./store/store";
 import {  ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import { createStore } from 'redux';
 
 interface State {
     store: Store,
 }
+
+
 
 export const store = new Store();
 
