@@ -1,4 +1,4 @@
-import { Button, FormControl,  TextField  } from "@material-ui/core";
+import { Button, FormControl,  Link,  TextField  } from "@material-ui/core";
 import React, {FC, useEffect, useState} from "react";
 import { Container } from "@material-ui/core";
 import { observer } from "mobx-react-lite";
@@ -6,6 +6,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { GET_ALL_NOTES } from "../../quary/note";
 import { INote } from "../../models/INote";
 import { CREATE_USER } from "../../mutations/note";
+import {  TEST_ROUTE } from "../../utils/consts";
 
 export{}
 
@@ -17,6 +18,7 @@ const Notes: FC = observer(() =>{
     const [notes, setNotes] = useState([])
     const {data , loading, error, refetch} = useQuery(GET_ALL_NOTES)
     const [newNote] = useMutation(CREATE_USER)
+    const id = '2'
 
     function saveNote(value:string) {
         let valueSt:string = ''
@@ -96,7 +98,11 @@ const Notes: FC = observer(() =>{
                         {notes.map((note:INote) => <div key={note.id}>
                             title: {note.title} ; author: {note.author} ; date: {note.date}
                         </div>)}
-                             
+
+                    
+                    <Link href='/notes/{id}' color ="inherit">
+                        test
+                    </Link>
  
                 </FormControl>
             </Container>

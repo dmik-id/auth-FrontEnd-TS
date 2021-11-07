@@ -6,7 +6,7 @@ import {  ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { createStore } from 'redux';
 
 interface State {
-    store: Store,
+    store: Store
 }
 
 
@@ -14,12 +14,12 @@ interface State {
 export const store = new Store();
 
 export const Context = createContext<State>({
-    store,
+    store
 })
 
 const client = new ApolloClient({
     uri: 'http://localhost:5000/graphql' ,
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache()
 
 })
 
@@ -29,7 +29,7 @@ ReactDOM.render(
             store
         }}>
             <App />
-        </Context.Provider>,
+        </Context.Provider>
     </ApolloProvider>,
   document.getElementById('root') || document.createElement('div')
 ); 

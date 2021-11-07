@@ -24,9 +24,9 @@ const Appbar:FC = observer(() =>{
 
     return(
 
-        <Container>
+    
 
-            <AppBar  position="static">
+            <AppBar color= 'secondary' position="static">
                 <Link href={LANDING_ROUTE} color="inherit">
                     Landing
                 </Link>
@@ -50,7 +50,7 @@ const Appbar:FC = observer(() =>{
                 <Link href = {LOGIN_ROUTE} color="inherit">Authorization</Link>}
                 </Button>
             </AppBar>
-        </Container>
+      
     )
 })
 export default Appbar
