@@ -7,6 +7,8 @@ import { GET_ALL_NOTES } from "../../quary/note";
 import { INote } from "../../models/INote";
 import { CREATE_USER } from "../../mutations/note";
 import {  LANDING_ROUTE, TEST_ROUTE } from "../../utils/consts";
+// import { Link } from "react-router-dom";
+
 
 export{}
 
@@ -93,8 +95,10 @@ const Notes: FC = observer(() =>{
 
                      
                         {notes.map((note:INote) => <div key={note.id}>
-                            <Link href = {TEST_ROUTE}>
-                             title: {note.title} {/*author: {note.author} ; date: {note.date} */}
+                            <Link href= {"/notes/" + note.id}>
+                             title: {note.title}
+                             test: {note.id}
+                              {/*author: {note.author} ; date: {note.date} */}
                             </Link>
                         </div>)}
 

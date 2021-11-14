@@ -12,22 +12,25 @@ const EditNote: FC = observer(() =>{
     
     const {data , loading, error, refetch} = useQuery(GET_ALL_NOTES)
     const [notes, setNotes] = useState([])
+    let { id } = useParams() as any;
+
+
+    useEffect(() => {
+        if(!loading){
+            setNotes(data.getAllNote)
+        }
+    }, [])
+
     useEffect(() => {
         if(!loading){
             setNotes(data.getAllNote)
         }
     }, [data])
+
     return(
         <Container>
             <div>
-                <h1>EDIT</h1>
-                
-                {notes.map((note:INote) =>
-                    <div key={note.id}>
-                            title: {note.title}; author: {note.author} ; date: {note.date}
-                    </div>)}
-
-
+                <h1>{id}</h1>
             </div>
         </Container>
     )

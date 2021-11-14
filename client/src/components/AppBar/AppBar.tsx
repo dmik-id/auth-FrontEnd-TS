@@ -23,9 +23,6 @@ const Appbar:FC = observer(() =>{
     }
 
     return(
-
-    
-
             <AppBar color= 'secondary' position="static">
                 <Link href={LANDING_ROUTE} color="inherit">
                     Landing
