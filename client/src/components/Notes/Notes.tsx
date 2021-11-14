@@ -6,7 +6,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { GET_ALL_NOTES } from "../../quary/note";
 import { INote } from "../../models/INote";
 import { CREATE_USER } from "../../mutations/note";
-import {  TEST_ROUTE } from "../../utils/consts";
+import {  LANDING_ROUTE, TEST_ROUTE } from "../../utils/consts";
 
 export{}
 
@@ -91,18 +91,14 @@ const Notes: FC = observer(() =>{
                         SAVE
                     </Button>
 
-                    <Button>
-                        GET NOTES
-                    </Button>
-                        
+                     
                         {notes.map((note:INote) => <div key={note.id}>
-                            title: {note.title} ; author: {note.author} ; date: {note.date}
+                            <Link href = {TEST_ROUTE}>
+                             title: {note.title} {/*author: {note.author} ; date: {note.date} */}
+                            </Link>
                         </div>)}
 
-                    
-                    <Link href='/notes/{id}' color ="inherit">
-                        test
-                    </Link>
+                        
  
                 </FormControl>
             </Container>
