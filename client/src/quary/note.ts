@@ -7,6 +7,7 @@ export const GET_ALL_NOTES = gql`
             title
             author
             date
+            fullText
             
         }
     } 

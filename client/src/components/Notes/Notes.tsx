@@ -97,7 +97,6 @@ const Notes: FC = observer(() =>{
                         {notes.map((note:INote) => <div key={note.id}>
                             <Link href= {"/notes/" + note.id}>
                              title: {note.title}
-                             test: {note.id}
                               {/*author: {note.author} ; date: {note.date} */}
                             </Link>
                         </div>)}

@@ -31,6 +31,24 @@ const EditNote: FC = observer(() =>{
         <Container>
             <div>
                 <h1>{id}</h1>
+
+                {notes.filter((note:INote) => note.id == id).map((note:INote) =>
+
+                    <div key={note.id}>
+                        <p>title: {note.title};</p> 
+                        
+                        <p>fullText: {note.fullText}</p> 
+                        
+                        <p>author: {note.author} ;</p> 
+                        
+                        <p>date: {note.date}</p> 
+                        
+                        <input type="file" multiple 
+                            name="myImage" accept=".png, .jpeg" className="multiple-upload" 
+                        />
+                    </div>)
+                }
+
             </div>
         </Container>
     )
