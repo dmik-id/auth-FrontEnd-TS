@@ -66,6 +66,8 @@ const EditNote: FC = observer(() =>{
                         
                         <p>date: {note.date}</p> 
                         
+                        <p>
+                        <TextField 
                             onChange={e => setTitle(e.target.value)}
                             value={title || ''}
                             label = 'title'
