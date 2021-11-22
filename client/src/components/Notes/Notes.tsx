@@ -6,7 +6,6 @@ import { useMutation, useQuery } from "@apollo/client";
 import { GET_ALL_NOTES } from "../../quary/note";
 import { INote } from "../../models/INote";
 import { CREATE_USER } from "../../mutations/note";
-import {  LANDING_ROUTE, TEST_ROUTE } from "../../utils/consts";
 // import { Link } from "react-router-dom";
 
 
@@ -18,9 +17,8 @@ const Notes: FC = observer(() =>{
     const [fullText, setFullText] = useState(localStorage.getItem('notes'))
     const [title, setTitle] = useState(localStorage.getItem('title'))
     const [notes, setNotes] = useState([])
-    const {data , loading, error, refetch} = useQuery(GET_ALL_NOTES)
+    const {data , loading} = useQuery(GET_ALL_NOTES)
     const [newNote] = useMutation(CREATE_USER)
-    const id = '2'
 
     function saveNote(value:string) {
         let valueSt:string = ''

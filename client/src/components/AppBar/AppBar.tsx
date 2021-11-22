@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Button, Container, Link } from "@material-ui/core";
+import { AppBar, Button, Link } from "@material-ui/core";
 import { FC } from "react";
 import { observer } from "mobx-react-lite";
 import { ADMIN_ROUTE, LANDING_ROUTE, LOGIN_ROUTE, NOTES_ROUTE, USERLIST_ROUTE } from "../../utils/consts";
