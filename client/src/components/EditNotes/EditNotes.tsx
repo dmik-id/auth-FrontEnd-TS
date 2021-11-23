@@ -11,8 +11,6 @@ const EditNote: FC = observer(() =>{
 
     const [notes, setNotes] = useState([])
     let { id } = useParams() as any;
-    
-    console.log(notes.filter((note:INote) => note.id == id).map((note:INote) => note.fullText))
 
     const [title, setTitle] = useState('')
     const {data , loading } = useQuery(GET_ALL_NOTES)
@@ -50,7 +48,17 @@ const EditNote: FC = observer(() =>{
         }
     }, [data])
 
-    const [fullText, setFullText] = useState(notes.filter((note:INote) => note.id == id).map((note:INote) => note.fullText)[0])
+    let fulltext = notes.filter((note:INote) => note.id == id).map((note:INote) => note.fullText)[0]
+
+
+    while (fulltext == undefined){
+
+    }
+    console.log(fulltext)
+
+    // const [fullText, setFullText] = useState(notes.filter((note:INote) => note.id == id).map((note:INote) => note.fullText)[0])
+    const [fullText, setFullText] = useState(fulltext)
+
     return(
         <Container>
             <div>
