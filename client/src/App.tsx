@@ -13,18 +13,15 @@ import { GET_ALL_NOTES } from './quary/note';
 
 const App: FC = observer(() => {
     const {store} = useContext(Context);
-    const [notes, setNotes] = useState([])
-    const {data , loading} = useQuery(GET_ALL_NOTES)
+
 
     useEffect(() => {
         if (localStorage.getItem('token')){
             store.setAuth(true)
-            if(!loading){
-                setNotes(data.getAllNote)
-            }
+
         }
         
-    }, [data])
+    }, [])
 
     if (store._isLoading) {
         return <div>Загрузка...</div>

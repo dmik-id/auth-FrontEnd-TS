@@ -35,13 +35,6 @@ const EditNote: FC = observer(() =>{
         localStorage.setItem('title', valueSt)
     }
 
-
-    // useEffect(() => {
-    //     if(!loading){
-    //         setNotes(data.getAllNote)
-    //     }
-    // }, [])
-
     useEffect(() => {
         if(!loading){
             setNotes(data.getAllNote)
@@ -50,14 +43,18 @@ const EditNote: FC = observer(() =>{
 
     let fulltext = notes.filter((note:INote) => note.id == id).map((note:INote) => note.fullText)[0]
 
+    const [fullText, setFullText] = useState('')
 
-    while (fulltext == undefined){
-
+    if (fulltext !== undefined){
+        let full = fulltext
+        console.log(full)
+        console.log(typeof(full))
+        // setFullText('')
     }
-    console.log(fulltext)
+    // console.log(fulltext)
 
     // const [fullText, setFullText] = useState(notes.filter((note:INote) => note.id == id).map((note:INote) => note.fullText)[0])
-    const [fullText, setFullText] = useState(fulltext)
+    // const [fullText, setFullText] = useState(full)
 
     return(
         <Container>
